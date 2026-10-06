@@ -1,0 +1,52 @@
+{
+  "support": {
+    "id": "support",
+    "name": "Customer Support Assistant",
+    "shortName": "Support Bot",
+    "description": "Answers buyer and seller questions using help center knowledge. Reduces contact volume and improves self-service.",
+    "icon": "MessageCircle",
+    "color": "#3665F3",
+    "sampleQuestions": [
+      "How do I return an item?",
+      "Why was my payment declined?",
+      "How do I contact a seller?",
+      "What is eBay Money Back Guarantee?",
+      "How do I track my order?"
+    ],
+    "kbPath": "data/support-kb",
+    "pineconeIndex": "isaac-support-kb"
+  },
+  "escalation": {
+    "id": "escalation",
+    "name": "Agent Escalation Assistant",
+    "shortName": "Escalation Bot",
+    "description": "Guides Tier 1 agents through troubleshooting steps and resolution paths. Reduces escalations and compresses onboarding.",
+    "icon": "Shield",
+    "color": "#10B981",
+    "sampleQuestions": [
+      "Buyer claims item not received, tracking shows delivered",
+      "Seller is asking how to appeal an INAD case",
+      "Account restricted due to low seller metrics",
+      "Buyer opened a chargeback — what are the steps?",
+      "When do I escalate to Trust & Safety?"
+    ],
+    "kbPath": "data/escalation-kb",
+    "pineconeIndex": "isaac-escalation-kb"
+  },
+  "analytics": {
+    "id": "analytics",
+    "name": "Gen BI Analytics Assistant",
+    "shortName": "Analytics Bot",
+    "description": "Answers natural language questions about CX ticket data. Surfaces trends, drivers, and opportunities without SQL.",
+    "icon": "BarChart2",
+    "color": "#8B5CF6",
+    "sampleQuestions": [
+      "What is driving escalations this month?",
+      "Which contact reason has the lowest FCR?",
+      "How does CSAT vary by channel?",
+      "What are the top issues for new sellers?",
+      "Show me resolution time trends over the last 30 days"
+    ],
+    "dataPath": "data/analytics/tickets.json"
+  }
+}
