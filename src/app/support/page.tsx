@@ -32,11 +32,11 @@ const myThinking = [
   },
   {
     title: 'Treat user feedback as a data source',
-    body: 'I build feedback loops into every deployment. How users interact with the system and where they abandon it are the most accurate signals for where things are breaking. Silence is not success — it often means nobody trusts the tool enough to use it.',
+    body: 'I build feedback loops into every deployment. How users interact with the system and where they abandon it are the most accurate signals for where things are breaking. Silence is not success, and it usually means nobody trusts the tool enough to use it.',
   },
   {
     title: 'Analytics from day one',
-    body: 'Blind spots start as paper cuts and turn into serious tech debt. I instrument logging and monitoring before launch so that when something breaks, I know exactly where and why — not weeks after the fact.',
+    body: 'Blind spots start as paper cuts and turn into serious tech debt. I instrument logging and monitoring before launch so that when something breaks, I know exactly where and why, and how long before the fix ships.',
   },
 ]
 
@@ -77,15 +77,8 @@ export default function SupportPage() {
           <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 8px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Customer Support Assistant
           </h1>
-          <p style={{ fontSize: '16px', fontWeight: 500, color: '#6B7280', margin: '0 0 20px' }}>
-            AI-Driven Deflection and Self-Service Engine
-          </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            Built on a RAG architecture, every response is grounded in a verified knowledge base,
-            so the assistant only answers from what it knows. When a question falls outside scope,
-            it acknowledges the gap and routes to a human rather than guessing. Guardrails keep
-            the bot on topic and establish the foundation for more advanced architectures, including
-            multi-agent coordination (A2A) and external tool connectivity (MCP).
+            Built in hours, not days, against a real knowledge base; answers with citations, stops when confidence drops, hands to human when unsure. A team could hand this to a new hire Monday morning, ticket count drops, agent load drops, nothing else required. The RAG, guardrails, and A2A/MCP layer underneath is where ten years of system integrations makes &lsquo;wire it up and hand it off&rsquo; the obvious next step.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {badges.map(b => (
