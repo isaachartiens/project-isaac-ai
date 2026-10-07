@@ -141,7 +141,7 @@ export default function Home() {
               A decade of building things that work.
             </h2>
             <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.6, margin: '0 auto', maxWidth: '65ch' }}>
-              Hey, I&apos;m Isaac. I like solving problems and working on interesting stuff with like-minded people, and curiosity is where everything starts. Came up from frontline tech support at Amazon into product, programs, and CX operations; ten years across the stack, new hire to exec, ops to finance to legal to security. This isn&apos;t a bullet list; every entry here is something I did, then tried to make better.
+              Hey, I&apos;m Isaac! Happy to have you here. Ten years of building things, some that worked, a lot that didn&apos;t go as planned, all of them worth something. Led teams, made calls with incomplete data, changed my mind when the numbers said I was wrong. Came up from frontline tech support into product, programs, and CX operations at Amazon. This isn&apos;t a bullet list. Every entry here is something I did, then tried to make better.
             </p>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
