@@ -110,10 +110,7 @@ export default function Home() {
             fontSize: '18px', color: '#4B5563', lineHeight: 1.7,
             margin: '0 0 44px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto',
           }}>
-            Seasoned operational leader with 10+ years of experience across Customer Experience,
-            Software Services, and complex system integrations. I specialize in architecting the
-            foundational systems that drive customer satisfaction, maximize agent productivity,
-            and move the needle on the KPIs that actually matter.
+            Grew up in startups, developed to lead with Amazon at scale. Curiosity drove every step, through every corner of the business. That arc is why this whole site is a live demo, not screenshots of one. Three AI systems, working, plus the notes on how they should&apos;ve been built. Worked together or not, hope something here finds its way into something you&apos;re working on.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/experience" style={{
@@ -140,9 +137,12 @@ export default function Home() {
             <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
               Expertise
             </div>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: 0, letterSpacing: '-0.025em' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: '0 0 20px', letterSpacing: '-0.025em' }}>
               A decade of building things that work.
             </h2>
+            <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.6, margin: '0 auto', maxWidth: '65ch' }}>
+              Hey, I&apos;m Isaac. I like solving problems and working on interesting stuff with like-minded people, and curiosity is where everything starts. Came up from frontline tech support at Amazon into product, programs, and CX operations; ten years across the stack, new hire to exec, ops to finance to legal to security. This isn&apos;t a bullet list; every entry here is something I did, then tried to make better.
+            </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px' }}>
             {expertise.map(tile => (
@@ -251,9 +251,12 @@ export default function Home() {
             <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
               Operating Principles
             </div>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: 0, letterSpacing: '-0.025em' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: '0 0 20px', letterSpacing: '-0.025em' }}>
               How I work.
             </h2>
+            <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.6, margin: '0 auto', maxWidth: '65ch' }}>
+              Here&apos;s what &apos;product&apos; means to me: not roadmaps and demos, it&apos;s finding root cause first, then the smallest system that actually fixes it, so a year out it still holds. How the team works: collaborate more than hand off. If someone has the sharper read on why something breaks, that&apos;s what we ship, not whoever filed the ticket.
+            </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
             {personal.map(p => (
@@ -281,8 +284,11 @@ export default function Home() {
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: '0 0 12px', letterSpacing: '-0.025em' }}>
             Ready to build something meaningful?
           </h2>
-          <p style={{ fontSize: '16px', color: '#6B7280', margin: '0 0 32px' }}>
+          <p style={{ fontSize: '16px', color: '#6B7280', margin: '0 0 16px' }}>
             Isaac Hartiens · Austin, TX
+          </p>
+          <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.6, margin: '0 0 32px', maxWidth: '65ch', marginLeft: 'auto', marginRight: 'auto' }}>
+            Built to do two jobs: one to make the next role easier to explain, and one for you to actually click through. If you&apos;re evaluating me for something specific, email me, let&apos;s dig into the numbers behind the case studies, what was broken, what the OKR said, whether the tool still hits it today. If you&apos;re just poking around, same thing, take what&apos;s useful, run whatever doesn&apos;t fit your stack, and email when something in there makes sense to you.
           </p>
           <a href="https://www.linkedin.com/in/isaachartiens/" target="_blank" rel="noopener noreferrer"
             style={{
