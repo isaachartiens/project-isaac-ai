@@ -69,3 +69,21 @@ body {
 .escalation-page { --accent: #2DD4BF; }
 .analytics-page  { --accent: #A78BFA; }
 .home-page       { --accent: #60A5FA; }
+
+/* Expertise tile per-category accent scopes — routes var(--accent) through CSS, no hardcoded hex in JSX border-top */
+.tile-cx-ops       { --accent: #60A5FA; }
+.tile-product-mgmt { --accent: #2DD4BF; }
+.tile-program-mgmt { --accent: #818CF8; }
+.tile-ai-transform { --accent: #A78BFA; }
+
+/* Tool card per-tool accent scopes */
+.tool-card-support    { --accent: #60A5FA; }
+.tool-card-escalation { --accent: #2DD4BF; }
+.tool-card-analytics  { --accent: #A78BFA; }
+
+/* Anchor tab scroll offset — accounts for sticky nav with tab row on tool pages */
+#demo,
+#thinking,
+#best-practices {
+  scroll-margin-top: 112px;
+}

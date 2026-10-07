@@ -120,8 +120,8 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
       >
         {messages.length === 0 ? (
           <div style={{
-            display: 'flex', flexDirection: 'column', gap: '6px',
-            paddingTop: '8px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            height: '100%', gap: '6px',
           }}>
             <p style={{ fontSize: '12px', color: '#A0A0A8', textAlign: 'center', margin: '0 0 6px' }}>
               Ask me anything to get started

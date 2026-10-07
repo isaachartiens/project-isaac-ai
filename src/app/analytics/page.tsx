@@ -94,7 +94,7 @@ export default function AnalyticsPage() {
 
       {/* HERO */}
       <section style={{
-        paddingTop: '96px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
+        paddingTop: '120px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
         background: 'linear-gradient(160deg, #F0F4FF 0%, #FAFAFA 60%, #F5F0FF 100%)',
         borderBottom: '1px solid #E5E7EB',
       }}>
@@ -112,12 +112,10 @@ export default function AnalyticsPage() {
             Conversational Intelligence for CX Operations
           </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            This prototype demonstrates how natural language queries can replace manual data analysis for CX teams.
-            Built over a synthetic dataset of 500 support tickets, the assistant surfaces patterns in sentiment,
+            Built over a synthetic dataset of 500 support tickets, it surfaces patterns in sentiment,
             escalation behavior, agent performance, and contact drivers on demand, without SQL or BI tooling.
-            Sentiment data tells you how customers feel. Purchase and decision signals tell you what is working.
-            Issue detection tells you what to fix. Together, they give leaders a connected view of the customer
-            experience that supports forecasting, roadmap alignment, and sustained growth.
+            Connect these signals and you move from reacting to problems to anticipating them, giving
+            leaders a connected view of the customer experience that supports forecasting and roadmap alignment.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {badges.map(b => (
@@ -133,7 +131,7 @@ export default function AnalyticsPage() {
 
       {/* KPI STRIP */}
       <section style={{ background: '#F9FAFB', padding: '32px 24px', borderBottom: '1px solid #E5E7EB' }}>
-        <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 mx-auto max-w-[860px]">
           {kpis.map(k => (
             <div key={k.label} style={{
               background: '#fff', borderRadius: '12px', padding: '18px 20px',
@@ -148,7 +146,7 @@ export default function AnalyticsPage() {
       </section>
 
       {/* DEMO + THINKING */}
-      <section style={{ background: '#fff', padding: '64px 24px' }}>
+      <section id="demo" style={{ background: '#fff', padding: '64px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '40px', alignItems: 'start' }}>
 
           {/* LEFT: Chat */}
@@ -186,7 +184,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* RIGHT: My Thinking */}
-          <div style={{ position: 'sticky', top: '88px' }}>
+          <div id="thinking" style={{ position: 'sticky', top: '112px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
               <Lightbulb className="h-3.5 w-3.5" aria-hidden="true" />
               My Thinking
@@ -222,7 +220,7 @@ export default function AnalyticsPage() {
       </section>
 
       {/* BEST PRACTICES */}
-      <section style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
+      <section id="best-practices" style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Best Practices

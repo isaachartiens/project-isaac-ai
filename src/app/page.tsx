@@ -8,7 +8,6 @@ const tools = [
     name: 'Customer Support Assistant',
     tagline: 'Answers buyer and seller questions from a curated knowledge base',
     context: 'Mirrors the self-service knowledge architecture I built at Amazon to reduce live agent contact volume and compress new agent onboarding time.',
-    color: '#60A5FA',
     href: '/support',
   },
   {
@@ -16,7 +15,6 @@ const tools = [
     name: 'Agent Escalation Assistant',
     tagline: 'Guides Tier 1 agents through resolution paths to prevent escalations',
     context: 'Inspired by the AI escalation guidance tool I deployed at Amazon. The same pattern reduced Tier 2 escalation rates by 30% and put expert-level knowledge at every agent\'s fingertips.',
-    color: '#2DD4BF',
     href: '/escalation',
   },
   {
@@ -24,7 +22,6 @@ const tools = [
     name: 'Gen BI Analytics Bot',
     tagline: 'Ask natural language questions about CX ticket data',
     context: 'Demonstrates the conversational analytics layer I built on top of operational data, giving managers instant answers without needing to analyze thousands of data points or BI tools.',
-    color: '#A78BFA',
     href: '/analytics',
   },
 ]
@@ -32,24 +29,28 @@ const tools = [
 const expertise = [
   {
     label: 'CX Operations',
+    cssClass: 'tile-cx-ops',
     accent: '#60A5FA',
     body: 'Built customer support organizations from scratch to a global operation of 400+ agents across five sites. I have held every role in the stack, from frontline to managing a multi-million dollar P&L.',
     achievement: '400+ agents · 5 sites · $1M+ P&L',
   },
   {
     label: 'Product Management',
+    cssClass: 'tile-product-mgmt',
     accent: '#2DD4BF',
     body: 'I focus on the tools and systems that power a business. From major infrastructure migrations to AI integrations, I build the operational backbone that removes friction for employees and elevates the customer experience.',
     achievement: '43% CRM cost reduction · 60% telephony savings',
   },
   {
     label: 'Program Management',
+    cssClass: 'tile-program-mgmt',
     accent: '#818CF8',
     body: 'I run the complex, cross-functional projects that fall between the cracks. Engineering, legal, security, marketing, and the customer voice all on one roadmap, moving in the same direction.',
     achievement: '100+ processes authored · Voice of the Customer program',
   },
   {
     label: 'AI Transformation',
+    cssClass: 'tile-ai-transform',
     accent: '#A78BFA',
     body: 'I help companies move from AI curiosity to AI utility. Internal tools, customer-facing systems, and Gen BI platforms that let employees stop data mining and start making decisions. The result: a 30% reduction in escalation rates.',
     achievement: '30% escalation reduction · AI deployed at scale',
@@ -147,13 +148,13 @@ export default function Home() {
             {expertise.map(tile => (
               <div
                 key={tile.label}
-                className="expertise-card"
+                className={`expertise-card ${tile.cssClass}`}
                 style={{
                   background: '#fff',
                   borderRadius: '16px',
                   padding: '28px',
                   border: '1px solid #E5E7EB',
-                  borderTop: `4px solid ${tile.accent}`,
+                  borderTop: '4px solid var(--accent)',
                   boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03)',
                   display: 'flex', flexDirection: 'column', gap: '14px',
                 }}
@@ -193,13 +194,13 @@ export default function Home() {
             {tools.map(tool => (
               <div
                 key={tool.id}
-                className="tool-card"
+                className={`tool-card tool-card-${tool.id}`}
                 style={{
                   background: '#fff',
                   borderRadius: '16px',
                   padding: '28px',
                   border: '1px solid #E5E7EB',
-                  borderTop: `4px solid ${tool.color}`,
+                  borderTop: '4px solid var(--accent)',
                   boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03)',
                   display: 'flex', flexDirection: 'column', gap: '12px',
                 }}
@@ -208,7 +209,7 @@ export default function Home() {
                 <p style={{ fontSize: '14px', color: '#6B7280', margin: 0, lineHeight: 1.5 }}>{tool.tagline}</p>
                 <p style={{ fontSize: '13px', color: '#4B5563', margin: 0, lineHeight: 1.7, flex: 1 }}>{tool.context}</p>
                 <Link href={tool.href} style={{
-                  color: tool.color, fontWeight: 600, fontSize: '14px',
+                  color: 'var(--accent)', fontWeight: 600, fontSize: '14px',
                   textDecoration: 'none', marginTop: '4px',
                   letterSpacing: '0.01em',
                 }}>

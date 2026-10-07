@@ -66,7 +66,7 @@ export default function SupportPage() {
 
       {/* HERO */}
       <section style={{
-        paddingTop: '96px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
+        paddingTop: '120px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
         background: 'linear-gradient(160deg, #F0F4FF 0%, #FAFAFA 60%, #F5F0FF 100%)',
         borderBottom: '1px solid #E5E7EB',
       }}>
@@ -81,12 +81,10 @@ export default function SupportPage() {
             AI-Driven Deflection and Self-Service Engine
           </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            This prototype demonstrates how AI can move customers from manual support queues to instant self-service.
-            Built on a Retrieval-Augmented Generation (RAG) architecture, every response is grounded in a verified
-            knowledge base using real organizational data, so the assistant only answers from what it knows.
-            When a question falls outside that scope, it acknowledges the gap and routes to a human rather than guessing.
-            Guardrails are embedded throughout to keep the bot on topic and on brand. This prototype also establishes
-            the data and integration foundation required to support more advanced architectures, including
+            Built on a RAG architecture, every response is grounded in a verified knowledge base,
+            so the assistant only answers from what it knows. When a question falls outside scope,
+            it acknowledges the gap and routes to a human rather than guessing. Guardrails keep
+            the bot on topic and establish the foundation for more advanced architectures, including
             multi-agent coordination (A2A) and external tool connectivity (MCP).
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -102,7 +100,7 @@ export default function SupportPage() {
       </section>
 
       {/* DEMO + THINKING */}
-      <section style={{ background: '#fff', padding: '64px 24px' }}>
+      <section id="demo" style={{ background: '#fff', padding: '64px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '40px', alignItems: 'start' }}>
 
           {/* LEFT: Chat */}
@@ -140,7 +138,7 @@ export default function SupportPage() {
           </div>
 
           {/* RIGHT: My Thinking */}
-          <div style={{ position: 'sticky', top: '88px' }}>
+          <div id="thinking" style={{ position: 'sticky', top: '112px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
               <Lightbulb className="h-3.5 w-3.5" aria-hidden="true" />
               My Thinking
@@ -168,7 +166,7 @@ export default function SupportPage() {
       </section>
 
       {/* BEST PRACTICES */}
-      <section style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
+      <section id="best-practices" style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Best Practices

@@ -86,7 +86,7 @@ export default function EscalationPage() {
 
       {/* HERO */}
       <section style={{
-        paddingTop: '96px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
+        paddingTop: '120px', paddingBottom: '56px', paddingLeft: '24px', paddingRight: '24px',
         background: 'linear-gradient(160deg, #F0F4FF 0%, #FAFAFA 60%, #F5F0FF 100%)',
         borderBottom: '1px solid #E5E7EB',
       }}>
@@ -101,13 +101,11 @@ export default function EscalationPage() {
             AI-Powered Tier 1 Resolution and Escalation Guidance
           </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            This prototype demonstrates how AI can empower Tier 1 support agents to resolve more issues independently,
-            reducing escalations to Tier 2 and compressing agent onboarding and ramp time. Built on a RAG architecture
-            over internal procedure documentation, the assistant surfaces troubleshooting steps, escalation criteria, and
-            resolution paths on demand. Common goals for tools like this include reducing escalation rates, improving
-            first contact resolution, bolstering agent confidence during onboarding, and reducing average handle time.
-            When integrated with ticketing and CRM systems, this foundation can evolve from conversational guidance to
-            agentic action, closing tickets and updating records without manual intervention.
+            Built on a RAG architecture over internal procedure documentation, it surfaces
+            troubleshooting steps, escalation criteria, and resolution paths on demand, reducing
+            escalations to Tier 2 and compressing agent onboarding time. When integrated with
+            ticketing and CRM systems, this foundation can evolve from conversational guidance
+            to agentic action, closing tickets without manual intervention.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {badges.map(b => (
@@ -122,7 +120,7 @@ export default function EscalationPage() {
       </section>
 
       {/* DEMO + THINKING */}
-      <section style={{ background: '#fff', padding: '64px 24px' }}>
+      <section id="demo" style={{ background: '#fff', padding: '64px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '40px', alignItems: 'start' }}>
 
           {/* LEFT: Chat */}
@@ -160,7 +158,7 @@ export default function EscalationPage() {
           </div>
 
           {/* RIGHT: My Thinking */}
-          <div style={{ position: 'sticky', top: '88px' }}>
+          <div id="thinking" style={{ position: 'sticky', top: '112px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
               <Lightbulb className="h-3.5 w-3.5" aria-hidden="true" />
               My Thinking
@@ -188,7 +186,7 @@ export default function EscalationPage() {
       </section>
 
       {/* BEST PRACTICES */}
-      <section style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
+      <section id="best-practices" style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Best Practices
