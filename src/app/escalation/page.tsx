@@ -92,20 +92,13 @@ export default function EscalationPage() {
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Tool 02 - Agent Escalation
+            Tool 02 · Agent Escalation
           </div>
           <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 8px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Agent Escalation Assistant
           </h1>
-          <p style={{ fontSize: '16px', fontWeight: 500, color: '#6B7280', margin: '0 0 20px' }}>
-            AI-Powered Tier 1 Resolution and Escalation Guidance
-          </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            Built on a RAG architecture over internal procedure documentation, it surfaces
-            troubleshooting steps, escalation criteria, and resolution paths on demand, reducing
-            escalations to Tier 2 and compressing agent onboarding time. When integrated with
-            ticketing and CRM systems, this foundation can evolve from conversational guidance
-            to agentic action, closing tickets without manual intervention.
+            Built in hours, not days, against five internal SOP files. A Tier 1 agent asks in plain English and gets the decision tree, the resolve-or-escalate line, and the exact steps back in seconds. A team could have this running next morning. Escalation rate drops. Tier 2 queue drops. Nothing else required. The SOP routing underneath is where ten years of system integrations makes point-it-at-the-wiki-and-go the obvious next step.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {badges.map(b => (
