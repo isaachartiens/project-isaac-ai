@@ -1,12 +1,21 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Home, Headphones, TriangleAlert, ChartColumn } from 'lucide-react'
+
+// Accent color per linked-to page (not the current page)
+const routeAccent: Record<string, string> = {
+  '/': '#60A5FA',
+  '/support': '#60A5FA',
+  '/escalation': '#2DD4BF',
+  '/analytics': '#A78BFA',
+}
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/support', label: 'Customer Support' },
-  { href: '/escalation', label: 'Escalation Assistant' },
-  { href: '/analytics', label: 'Gen BI Analytics' },
+  { href: '/', label: 'Home', Icon: Home },
+  { href: '/support', label: 'Customer Support', Icon: Headphones },
+  { href: '/escalation', label: 'Escalation Assistant', Icon: TriangleAlert },
+  { href: '/analytics', label: 'Gen BI Analytics', Icon: ChartColumn },
 ]
 
 export default function Nav() {
@@ -15,38 +24,60 @@ export default function Nav() {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      background: '#fff', borderBottom: '1px solid #D5D5DC',
+      background: '#fff', borderBottom: '1px solid #E5E7EB',
       height: '64px', display: 'flex', alignItems: 'center',
       padding: '0 32px', justifyContent: 'space-between',
     }}>
       {/* Logo */}
       <Link href="/" style={{ textDecoration: 'none' }}>
-        <span style={{ fontSize: '16px', fontWeight: 600, color: '#111012', letterSpacing: '-0.01em' }}>
+        <span style={{ fontSize: '16px', fontWeight: 600, color: '#111827', letterSpacing: '-0.01em' }}>
           Isaac Hartiens
         </span>
       </Link>
 
       {/* Nav links */}
       <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-        {links.map(link => {
-          const active = pathname === link.href
+        {links.map(({ href, label, Icon }) => {
+          const active = pathname === href
+          const accent = routeAccent[href]
           return (
-            <Link key={link.href} href={link.href} style={{
-              textDecoration: 'none', fontSize: '14px', fontWeight: active ? 600 : 400,
-              color: active ? '#111012' : '#A0A0A8',
-              borderBottom: active ? '2px solid #111012' : '2px solid transparent',
-              paddingBottom: '2px', transition: 'color 0.15s',
-            }}>
-              {link.label}
+            <Link
+              key={href}
+              href={href}
+              className="nav-link"
+              style={{
+                textDecoration: 'none',
+                fontSize: '14px',
+                fontWeight: active ? 600 : 400,
+                color: active ? accent : '#4B5563',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                borderBottom: active ? `2px solid ${accent}` : '2px solid transparent',
+                paddingBottom: '2px',
+                transition: 'color 0.15s ease-out',
+              }}
+            >
+              <Icon size={16} aria-hidden="true" />
+              {label}
             </Link>
           )
         })}
       </div>
 
-      {/* LinkedIn */}
-      <a href="https://www.linkedin.com/in/isaachartiens/" target="_blank" rel="noopener noreferrer"
-        style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none', color: '#A0A0A8', fontSize: '14px' }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      {/* LinkedIn — kept as inline SVG because lucide-react v1.x removed brand icons */}
+      <a
+        href="https://www.linkedin.com/in/isaachartiens/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex', alignItems: 'center', gap: '6px',
+          textDecoration: 'none', color: '#4B5563', fontSize: '14px',
+          transition: 'color 0.15s ease-out',
+        }}
+        className="nav-linkedin"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
         LinkedIn
