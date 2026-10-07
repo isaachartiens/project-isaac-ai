@@ -7,21 +7,21 @@ const tools = [
     id: 'support',
     name: 'Customer Support Assistant',
     tagline: 'Answers buyer and seller questions from a curated knowledge base',
-    context: 'Mirrors the self-service knowledge architecture I built at Amazon to reduce live agent contact volume and compress new agent onboarding time.',
+    context: 'The same knowledge architecture I use at Amazon to reduce contact volume and cut new-hire ramp time. Built from the same playbook, smaller scale.',
     href: '/support',
   },
   {
     id: 'escalation',
     name: 'Agent Escalation Assistant',
     tagline: 'Guides Tier 1 agents through resolution paths to prevent escalations',
-    context: 'Inspired by the AI escalation guidance tool I deployed at Amazon. The same pattern reduced Tier 2 escalation rates by 30% and put expert-level knowledge at every agent\'s fingertips.',
+    context: 'Replicates the escalation guidance I\'ve deployed at Amazon. That work dropped Tier 2 escalation rates 30%. This one shows how the pattern works.',
     href: '/escalation',
   },
   {
     id: 'analytics',
     name: 'Gen BI Analytics Bot',
     tagline: 'Ask natural language questions about CX ticket data',
-    context: 'Demonstrates the conversational analytics layer I built on top of operational data, giving managers instant answers without needing to analyze thousands of data points or BI tools.',
+    context: 'Shows how a conversational query layer on top of structured ticket data lets managers skip the analyst queue and ask directly.',
     href: '/analytics',
   },
 ]
@@ -60,7 +60,7 @@ const expertise = [
 const personal = [
   {
     title: 'Data and Defined Goals',
-    copy: 'I begin every initiative by identifying exact pain points and defining success metrics up front. Data-driven decision making is a requirement for sustainable growth, and every project I lead is anchored in clear goals before execution begins.',
+    copy: 'I start by finding what\'s actually broken and what success looks like before anything gets built. Data without a goal is noise.',
   },
   {
     title: 'Collaboration',
@@ -68,7 +68,7 @@ const personal = [
   },
   {
     title: 'Organizational Structure',
-    copy: 'Structure is the foundation of every successful outcome. I specialize in taking ambiguous environments and building sustainable processes where ownership is clearly defined and goals are aligned, so the organization can scale without losing momentum.',
+    copy: 'I build structure into messy environments: clear ownership, documented processes, defined success criteria. Not because it looks clean, but because it\'s the only way to scale without losing speed.',
   },
 ]
 
@@ -92,7 +92,7 @@ export default function Home() {
             border: '1px solid rgba(96,165,250,0.2)',
           }}>
             <Sparkles style={{ width: '14px', height: '14px', flexShrink: 0 }} aria-hidden="true" />
-            Product Manager · AI Transformation Lead · CX Operations
+            Product · AI · CX Operations
           </div>
           <h1 style={{
             fontSize: '60px', fontWeight: 700, color: '#111827', margin: '0 0 6px',
@@ -180,14 +180,13 @@ export default function Home() {
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
             <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
-              AI Transformation
+              AI Lab
             </div>
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: '0 0 16px', letterSpacing: '-0.025em' }}>
-              AI Transformation: Built to Work.
+              Three tools. All working.
             </h2>
             <p style={{ fontSize: '16px', color: '#4B5563', maxWidth: '560px', margin: '0 auto', lineHeight: 1.7 }}>
-              I don&apos;t believe in AI for the sake of novelty. I build tools that solve root-cause problems.
-              Below are three working prototypes demonstrating how I apply intelligence to eliminate systemic friction.
+              These aren&apos;t mockups. Each one is queryable against a real knowledge base, built to solve a specific CX problem the same way I&apos;d build it for a team on Monday.
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
@@ -232,10 +231,10 @@ export default function Home() {
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <p style={{ fontSize: '16px', color: '#4B5563', margin: 0, lineHeight: 1.8 }}>
-              These systems are only as good as the foundation you put in place. Many SaaS platforms now offer AI capabilities out of the box. For companies just getting started, that can be the right move. But off-the-shelf tools come with trade-offs: limited control over your data, constrained guardrails, and responses shaped by someone else's model.
+              Many SaaS platforms now offer AI capabilities out of the box. For companies just getting started, that can be the right move. But off-the-shelf tools come with trade-offs: limited control over your data, constrained guardrails, and responses shaped by someone else's model.
             </p>
             <p style={{ fontSize: '16px', color: '#4B5563', margin: 0, lineHeight: 1.8 }}>
-              The three tools on this site were built in days, not months, at minimal cost. With clearly defined goals and the right data, purpose-built AI systems can be faster to deploy, easier to customize, and more accountable than their packaged alternatives.
+              These three were built in days, not months. When you know exactly what you&apos;re solving for, purpose-built beats packaged.
             </p>
             <p style={{ fontSize: '16px', color: '#111827', margin: 0, lineHeight: 1.8, fontWeight: 500 }}>
               The bottleneck is almost never the technology. It&apos;s knowing what you&apos;re trying to solve.
@@ -282,7 +281,7 @@ export default function Home() {
       }}>
         <div style={{ maxWidth: '480px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#111827', margin: '0 0 12px', letterSpacing: '-0.025em' }}>
-            Ready to build something meaningful?
+            Working on something? Let&apos;s compare notes.
           </h2>
           <p style={{ fontSize: '16px', color: '#6B7280', margin: '0 0 16px' }}>
             Isaac Hartiens · Austin, TX
@@ -308,7 +307,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer style={{ background: '#F9FAFB', padding: '24px', textAlign: 'center', borderTop: '1px solid #E5E7EB' }}>
         <p style={{ fontSize: '13px', color: '#9CA3AF', margin: 0 }}>
-          &copy; 2024 Isaac Hartiens · Built with Next.js + OpenAI + Pinecone
+          &copy; 2025 Isaac Hartiens · Built with Next.js + OpenAI + Pinecone
         </p>
       </footer>
     </main>

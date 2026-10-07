@@ -29,7 +29,7 @@ const myThinking = [
   },
   {
     title: 'Purchase decisions tell you what lands',
-    body: 'The questions customers ask before they commit, and the objections they raise along the way, are some of the most valuable signals in your support system. Most organizations ignore this data entirely. It tells you exactly what messaging is working and what is creating friction.',
+    body: 'The questions customers ask before they commit, and the objections they raise along the way, are some of the most valuable signals in your support system. Most teams never connect it back to their support data. It tells you exactly what messaging is working and what is creating friction.',
   },
   {
     title: 'Issue detection tells you what to fix',
@@ -37,7 +37,7 @@ const myThinking = [
   },
   {
     title: 'Tie it all together to forecast and stay aligned',
-    body: 'When sentiment, purchase signals, and issue patterns are unified in one view, you stop reacting to problems and start anticipating them. That is the difference between a support cost center and a customer intelligence engine that drives growth and stays aligned with company principles.',
+    body: 'When sentiment, purchase signals, and issue patterns are unified in one view, you stop reacting to problems and start anticipating them. That is the difference between a support cost center and a business asset that tells you what to fix next.',
   },
 ]
 
@@ -100,7 +100,7 @@ export default function AnalyticsPage() {
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Tool 03 - Gen BI Analytics
+            TOOL 03 · GEN BI ANALYTICS
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
             <AnalyticsBarChartIcon className="h-8 w-8" style={{ color: '#A78BFA', flexShrink: 0 }} />
@@ -108,14 +108,8 @@ export default function AnalyticsPage() {
               Gen BI Analytics Bot
             </h1>
           </div>
-          <p style={{ fontSize: '16px', fontWeight: 500, color: '#6B7280', margin: '0 0 20px' }}>
-            Conversational Intelligence for CX Operations
-          </p>
           <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.75, margin: '0 0 28px', maxWidth: '65ch' }}>
-            Built over a synthetic dataset of 500 support tickets, it surfaces patterns in sentiment,
-            escalation behavior, agent performance, and contact drivers on demand, without SQL or BI tooling.
-            Connect these signals and you move from reacting to problems to anticipating them, giving
-            leaders a connected view of the customer experience that supports forecasting and roadmap alignment.
+            Built in hours, not days, against 500 tickets of operational data. Ask in plain English. Get the pattern, the trend line, and the reasoning back in seconds. Works for CSAT dips by agent, escalation reasons, marketing cohorts, FCR trends - whatever the team is still answering in a spreadsheet at 9am. A team could have this wired to their live data by end of week. The NL2SQL and pre-aggregation underneath is where ten years of system integrations makes that move from spreadsheet to conversation the obvious one.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {badges.map(b => (

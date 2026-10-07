@@ -24,7 +24,7 @@ const prompts = [
 const myThinking = [
   {
     title: 'Start with the pain points',
-    body: 'Long call times and high escalation rates are not problems to accept, they are data. I start by analyzing where agents are struggling most and use those patterns to prioritize what goes into the knowledge base. The pain points are the roadmap.',
+    body: 'Long call times and high escalation rates are not problems to accept. They are data. I start by analyzing where agents are struggling most and use those patterns to prioritize what goes into the knowledge base. The pain points are the roadmap.',
   },
   {
     title: 'AI does not have to solve every problem',
@@ -36,7 +36,7 @@ const myThinking = [
   },
   {
     title: 'Track every KPI that matters',
-    body: 'You cannot improve what you cannot measure. I build data tooling into every deployment that connects usage to escalation rates, handle time, CSAT, agent satisfaction, and first contact resolution. These are the signals that drive continuous improvement and validate the investment over time.',
+    body: 'I build data tooling into every deployment that connects usage to escalation rates, handle time, CSAT, agent satisfaction, and first contact resolution. If the tool is working, the numbers say so. If they don\'t, I want to know before anyone else does.',
   },
 ]
 

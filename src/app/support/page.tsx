@@ -72,7 +72,7 @@ export default function SupportPage() {
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Tool 01 - Customer Support
+            TOOL 01 · CUSTOMER SUPPORT
           </div>
           <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 8px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Customer Support Assistant
@@ -104,7 +104,7 @@ export default function SupportPage() {
                 Live Demo
               </div>
               <p style={{ fontSize: '14px', color: '#6B7280', margin: '0 0 12px' }}>
-                Try a suggested prompt or type your own question.
+              Ask what a customer might send on a Monday morning.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {prompts.map(p => (
