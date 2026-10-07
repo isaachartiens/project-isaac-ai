@@ -110,7 +110,7 @@ export default function Home() {
             fontSize: '18px', color: '#4B5563', lineHeight: 1.7,
             margin: '0 0 44px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto',
           }}>
-            Grew up in startups, developed to lead with Amazon at scale. Curiosity drove every step, through every corner of the business. That arc is why this whole site is a live demo, not screenshots of one. Three AI systems, working, plus the notes on how they should&apos;ve been built. Worked together or not, hope something here finds its way into something you&apos;re working on.
+            Grew up in startups, developed to lead with Amazon at scale. Curiosity drove every step, through every corner of the business. That arc is why this whole site is a live demo, not screenshots of one. Three AI systems, working, and a look into how I think about building them. Whether you&apos;re evaluating me for a role, exploring a collaboration, or just seeing what&apos;s possible, hope something here is worth your time.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/experience" style={{
@@ -141,7 +141,7 @@ export default function Home() {
               A decade of building things that work.
             </h2>
             <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.6, margin: '0 auto', maxWidth: '65ch' }}>
-              Hey, I&apos;m Isaac! Happy to have you here. Ten years of building things, some that worked, a lot that didn&apos;t go as planned, all of them worth something. Led teams, made calls with incomplete data, changed my mind when the numbers said I was wrong. Came up from frontline tech support into product, programs, and CX operations at Amazon. This isn&apos;t a bullet list. Every entry here is something I did, then tried to make better.
+              Hey, I&apos;m Isaac! Happy to have you here. Ten years of building things, some that worked, a lot that didn&apos;t go as planned, all of them worth something. Led teams, made calls with incomplete data, changed my mind when the numbers said I was wrong. Came up from frontline tech support into product, programs, and CX operations at Amazon. This isn&apos;t a portfolio of outputs. It&apos;s a record of how I approach problems.
             </p>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
