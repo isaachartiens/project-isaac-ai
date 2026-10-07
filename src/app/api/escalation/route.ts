@@ -26,10 +26,36 @@ function staticStream(text: string): ReadableStream {
   })
 }
 
+const INJECTION_PATTERNS = [
+  'ignore previous instructions',
+  'ignore all previous',
+  'you are now',
+  'disregard your',
+  'forget your instructions',
+  'new instructions:',
+]
+
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json()
     const lastMessage = messages[messages.length - 1].content
+
+    // Guard A — input length
+    if (lastMessage.length > 500) {
+      return new Response(
+        JSON.stringify({ error: 'Message too long. Please keep questions under 500 characters.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Guard B — prompt injection
+    if (INJECTION_PATTERNS.some(p => lastMessage.toLowerCase().includes(p))) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid input.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
     const indexName = process.env.PINECONE_ESCALATION_INDEX || 'isaac-escalation-kb'
 
     let queryEmbedding: number[]

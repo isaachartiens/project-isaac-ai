@@ -11,6 +11,26 @@ interface ChatPanelProps {
   suggestedQuestions: string[]
 }
 
+// Session usage constants
+const STORAGE_KEY = 'isaac_msg_count'
+const SOFT_LIMIT = 20
+const LIMIT_MESSAGE =
+  "You've reached the demo limit for this session. Refresh the page to start a new conversation, or reach out directly via LinkedIn."
+
+// localStorage helpers — guard for SSR safety even though this is 'use client'
+function getCount(): number {
+  if (typeof window === 'undefined') return 0
+  return parseInt(localStorage.getItem(STORAGE_KEY) ?? '0', 10)
+}
+function incrementCount(): void {
+  if (typeof window === 'undefined') return
+  localStorage.setItem(STORAGE_KEY, String(getCount() + 1))
+}
+function resetCount(): void {
+  if (typeof window === 'undefined') return
+  localStorage.removeItem(STORAGE_KEY)
+}
+
 // Inline markdown renderer — handles **bold**, bullets, [links](url), line breaks
 function renderMarkdown(text: string): React.ReactNode[] {
   const lines = text.split('\n')
@@ -57,7 +77,31 @@ function inlineMarkdown(text: string): React.ReactNode[] {
 }
 
 export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, suggestedQuestions }: ChatPanelProps) {
-  const { messages, input, handleInputChange, handleSubmit, isLoading, append, setMessages } = useChat({ api: apiEndpoint })
+  const [chatError, setChatError] = useState<string | null>(null)
+
+  const { messages, input, handleInputChange, handleSubmit, isLoading, append, setMessages } = useChat({
+    api: apiEndpoint,
+    onFinish: () => {
+      incrementCount()
+    },
+    onError: (error) => {
+      // ai@2.x embeds the raw response body in the error message string.
+      // Try to pull out the "error" field from the embedded JSON; fall back to
+      // a status-code heuristic, then a generic message.
+      const bodyMatch = error.message.match(/\{[^}]*"error"\s*:\s*"([^"]+)"[^}]*\}/)
+      if (bodyMatch?.[1]) {
+        setChatError(bodyMatch[1])
+      } else if (
+        error.message.toLowerCase().includes('429') ||
+        error.message.toLowerCase().includes('too many')
+      ) {
+        setChatError('Too many requests. Please wait a moment before trying again.')
+      } else {
+        setChatError('Something went wrong. Please try again.')
+      }
+    },
+  })
+
   const endRef = useRef<HTMLDivElement>(null)
   const [justCompleted, setJustCompleted] = useState(false)
   const prevIsLoadingRef = useRef(false)
@@ -74,6 +118,17 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
     }
     prevIsLoadingRef.current = isLoading
   }, [isLoading, messages.length])
+
+  // Wraps handleSubmit to enforce the soft session limit and clear prior errors
+  const customHandleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setChatError(null)
+    if (getCount() >= SOFT_LIMIT) {
+      setChatError(LIMIT_MESSAGE)
+      return
+    }
+    handleSubmit(e)
+  }
 
   return (
     <div style={{
@@ -96,7 +151,11 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
           </div>
           {messages.length > 0 && (
             <button
-              onClick={() => setMessages([])}
+              onClick={() => {
+                setMessages([])
+                resetCount()
+                setChatError(null)
+              }}
               title="New conversation"
               style={{
                 background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '6px',
@@ -135,12 +194,22 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
               Ask me anything to get started
             </p>
             {suggestedQuestions.map(q => (
-              <button key={q} onClick={() => append({ role: 'user', content: q })}
+              <button
+                key={q}
+                onClick={() => {
+                  setChatError(null)
+                  if (getCount() >= SOFT_LIMIT) {
+                    setChatError(LIMIT_MESSAGE)
+                    return
+                  }
+                  append({ role: 'user', content: q })
+                }}
                 style={{
                   textAlign: 'left', background: '#fff', border: '1px solid #E5E7EB',
                   borderRadius: '8px', padding: '8px 12px', fontSize: '13px', color: '#111827',
                   cursor: 'pointer', fontFamily: 'inherit',
-                }}>
+                }}
+              >
                 {q}
               </button>
             ))}
@@ -193,7 +262,7 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
 
       {/* Input */}
       <form
-        onSubmit={handleSubmit}
+        onSubmit={customHandleSubmit}
         style={{
           display: 'flex', alignItems: 'center', gap: '8px',
           padding: '10px 14px', borderTop: '1px solid #E5E7EB', background: '#fff',
@@ -233,6 +302,21 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
           )}
         </button>
       </form>
+
+      {/* Inline error display — shown below input, no modal, no toast */}
+      {chatError && (
+        <div
+          style={{
+            padding: '4px 14px 8px',
+            fontSize: '12px',
+            color: accentColor,
+            background: '#fff',
+            flexShrink: 0,
+          }}
+        >
+          {chatError}
+        </div>
+      )}
     </div>
   )
 }
