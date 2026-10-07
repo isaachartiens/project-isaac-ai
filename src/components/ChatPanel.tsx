@@ -1,7 +1,7 @@
 'use client'
 import { useChat } from 'ai/react'
-import { useEffect, useRef } from 'react'
-import { MessageSquare, Loader, Check } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { MessageSquare, Loader, Check, RotateCcw, Send } from 'lucide-react'
 
 interface ChatPanelProps {
   apiEndpoint: string
@@ -59,10 +59,21 @@ function inlineMarkdown(text: string): React.ReactNode[] {
 export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, suggestedQuestions }: ChatPanelProps) {
   const { messages, input, handleInputChange, handleSubmit, isLoading, append, setMessages } = useChat({ api: apiEndpoint })
   const endRef = useRef<HTMLDivElement>(null)
+  const [justCompleted, setJustCompleted] = useState(false)
+  const prevIsLoadingRef = useRef(false)
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  useEffect(() => {
+    if (prevIsLoadingRef.current && !isLoading && messages.length > 0) {
+      setJustCompleted(true)
+      const t = setTimeout(() => setJustCompleted(false), 1500)
+      return () => clearTimeout(t)
+    }
+    prevIsLoadingRef.current = isLoading
+  }, [isLoading, messages.length])
 
   return (
     <div style={{
@@ -94,10 +105,7 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
                 fontFamily: 'inherit',
               }}
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="1 4 1 10 7 10" />
-                <path d="M3.51 15a9 9 0 1 0 .49-3.5" />
-              </svg>
+              <RotateCcw className="h-4 w-4" />
               New chat
             </button>
           )}
@@ -169,6 +177,17 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
             </div>
           </div>
         )}
+        {justCompleted && !isLoading && (
+          <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+            <div style={{
+              background: '#fff', border: '1px solid #E5E7EB',
+              borderRadius: '12px', borderBottomLeftRadius: '4px',
+              padding: '8px 12px', display: 'flex', alignItems: 'center',
+            }}>
+              <Check style={{ width: '14px', height: '14px', color: accentColor }} aria-hidden="true" />
+            </div>
+          </div>
+        )}
         <div ref={endRef} />
       </div>
 
@@ -208,12 +227,9 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
           }}
         >
           {isLoading ? (
-            <Check style={{ width: '14px', height: '14px', color: '#fff' }} aria-hidden="true" />
+            <Loader style={{ width: '14px', height: '14px', color: '#fff' }} className="animate-spin" aria-hidden="true" />
           ) : (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" fill="white" stroke="none" />
-            </svg>
+            <Send style={{ width: '14px', height: '14px', color: '#fff' }} aria-hidden="true" />
           )}
         </button>
       </form>

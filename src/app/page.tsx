@@ -144,7 +144,7 @@ export default function Home() {
               Hey, I&apos;m Isaac. I like solving problems and working on interesting stuff with like-minded people, and curiosity is where everything starts. Came up from frontline tech support at Amazon into product, programs, and CX operations; ten years across the stack, new hire to exec, ops to finance to legal to security. This isn&apos;t a bullet list; every entry here is something I did, then tried to make better.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px' }}>
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
             {expertise.map(tile => (
               <div
                 key={tile.label}
@@ -190,7 +190,7 @@ export default function Home() {
               Below are three working prototypes demonstrating how I apply intelligence to eliminate systemic friction.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
             {tools.map(tool => (
               <div
                 key={tool.id}
@@ -258,7 +258,7 @@ export default function Home() {
               Here&apos;s what &apos;product&apos; means to me: not roadmaps and demos, it&apos;s finding root cause first, then the smallest system that actually fixes it, so a year out it still holds. How the team works: collaborate more than hand off. If someone has the sharper read on why something breaks, that&apos;s what we ship, not whoever filed the ticket.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
             {personal.map(p => (
               <div key={p.title} style={{
                 background: '#F9FAFB',
