@@ -95,6 +95,7 @@ export default function Nav() {
               <Link
                 key={href}
                 href={href}
+                scroll={true}
                 className="nav-link"
                 style={{
                   textDecoration: 'none',
