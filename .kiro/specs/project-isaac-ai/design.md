@@ -1,7 +1,7 @@
 # Project Isaac AI - Technical Design
 
-> **Stack note:** This project uses the same proven stack as Base Power Chatbot.
-> See PLAYBOOK.md for full implementation details and known gotchas.
+> This project uses Next.js 14, Vercel AI SDK v2, OpenAI, and Pinecone v9.
+> See `.kiro/steering/tech.md` for full implementation details and critical rules.
 
 ---
 

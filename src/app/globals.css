@@ -69,6 +69,7 @@ body {
 .escalation-page { --accent: #2DD4BF; }
 .analytics-page  { --accent: #A78BFA; }
 .home-page       { --accent: #60A5FA; }
+.experience-page { --accent: #818CF8; }
 
 /* Expertise tile per-category accent scopes — routes var(--accent) through CSS, no hardcoded hex in JSX border-top */
 .tile-cx-ops       { --accent: #60A5FA; }

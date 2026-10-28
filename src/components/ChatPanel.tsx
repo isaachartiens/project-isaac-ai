@@ -102,12 +102,15 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
     },
   })
 
-  const endRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const [justCompleted, setJustCompleted] = useState(false)
   const prevIsLoadingRef = useRef(false)
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const container = messagesContainerRef.current
+    if (container) {
+      container.scrollTop = container.scrollHeight
+    }
   }, [messages])
 
   useEffect(() => {
@@ -173,6 +176,7 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
 
       {/* Messages — fixed-height scroll pane */}
       <div
+        ref={messagesContainerRef}
         className="chat-messages"
         style={{
           height: '320px',
@@ -257,7 +261,7 @@ export default function ChatPanel({ apiEndpoint, accentColor, title, subtitle, s
             </div>
           </div>
         )}
-        <div ref={endRef} />
+
       </div>
 
       {/* Input */}

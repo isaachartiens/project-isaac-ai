@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Nav from '@/components/Nav'
 import ChatPanel from '@/components/ChatPanel'
-import { Radio, Lightbulb, ChevronRight } from 'lucide-react'
+import { Radio, Lightbulb } from 'lucide-react'
 
 const ACCENT = '#60A5FA'
 
@@ -22,21 +22,21 @@ const prompts = [
   'What happens if my item never arrives?',
 ]
 
-const useCaseCards = [
+const useCaseItems = [
   {
-    label: 'PROBLEM',
+    label: 'Problem',
     body: 'Customers want an answer so they can move on. Outside business hours or after three support articles, that friction is where carts get abandoned and contacts pile up.',
   },
   {
-    label: 'IMPACT',
+    label: 'Impact',
     body: 'Thirty to forty percent of incoming contacts are repeatable questions that still cost full agent time. Shedding just 10-20% at scale saves hundreds of thousands of dollars and extends into conversion and retention. The impact is even more significant in a startup environment where Opex is paramount and runway is limited.',
   },
   {
-    label: 'SOLUTION',
+    label: 'Solution',
     body: 'One conversational agent for both service deflection and sales assist. Grounded in your help center and product catalog. Hands off to a human the moment a customer requests it, intent gets ambiguous, or sentiment shifts.',
   },
   {
-    label: 'HOW I MEASURE IT',
+    label: 'How I measure it',
     body: 'Deflection rate tracked weekly. Assisted conversion rate vs. baseline. Post-chat CSAT to catch quality drift early.',
   },
 ]
@@ -83,17 +83,27 @@ const bestPractices = [
   },
 ]
 
+const cardStyle = {
+  background: '#fff',
+  borderRadius: '16px',
+  border: '1px solid #E5E7EB',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+}
+
+const numberedListItem = (i: number, title: string, body: string) => (
+  <div key={title} style={{ borderTop: '1px solid #E5E7EB', padding: '24px 0', display: 'flex', gap: '24px' }}>
+    <span style={{ fontSize: '13px', fontWeight: 700, color: '#D1D5DB', flexShrink: 0, paddingTop: '2px', minWidth: '28px' }}>
+      {String(i + 1).padStart(2, '0')}
+    </span>
+    <div>
+      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#111827', margin: '0 0 8px' }}>{title}</h3>
+      <p style={{ fontSize: '14px', color: '#4B5563', margin: 0, lineHeight: 1.7 }}>{body}</p>
+    </div>
+  </div>
+)
+
 export default function SupportPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
-
-  const [openBP, setOpenBP] = useState<Set<string>>(new Set(['0']))
-  const toggleBP = (key: string) => {
-    setOpenBP(prev => {
-      const next = new Set(prev)
-      next.has(key) ? next.delete(key) : next.add(key)
-      return next
-    })
-  }
 
   return (
     <main className="support-page" style={{ background: '#fff', minHeight: '100vh', overflowX: 'hidden' }}>
@@ -105,37 +115,21 @@ export default function SupportPage() {
         background: 'linear-gradient(160deg, #F0F4FF 0%, #FAFAFA 60%, #F5F0FF 100%)',
         borderBottom: '1px solid #E5E7EB',
       }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             TOOL 01 · CUSTOMER SUPPORT
           </div>
-          <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 28px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 20px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Customer Support Assistant
           </h1>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4" style={{ marginBottom: '20px' }}>
-            {useCaseCards.map(card => (
-              <div key={card.label} style={{
-                border: '1px solid #E5E7EB',
-                borderTop: '4px solid var(--accent)',
-                borderRadius: '16px',
-                padding: '24px',
-                background: '#fff',
-              }}>
-                <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
-                  {card.label}
-                </div>
-                <p style={{ fontSize: '14px', color: '#4B5563', margin: 0, lineHeight: 1.65 }}>{card.body}</p>
-              </div>
-            ))}
-          </div>
-          <div className="rwe-strip" style={{
-            borderLeft: '4px solid var(--accent)',
-            borderRadius: '12px',
-            padding: '20px 24px',
-            marginBottom: '24px',
-          }}>
-            <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
-              REAL-WORLD EXPERIENCE
+          <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: 1.7, margin: '0 0 32px' }}>
+            Customer support assistants are an effective way to empower customers to solve their own problems while increasing operational efficiency. The key is understanding customer needs, evaluating the impact before committing to initiatives, defining a solution, and ensuring you have the data to track KPIs and measure success.
+          </p>
+          {useCaseItems.map((item, i) => numberedListItem(i, item.label, item.body))}
+          <div style={{ borderTop: '1px solid #E5E7EB', marginBottom: '32px' }} />
+          <div style={{ ...cardStyle, padding: '20px 24px', marginBottom: '24px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
+              Real-World Experience
             </div>
             <p style={{ fontSize: '15px', color: '#111827', fontWeight: 500, margin: 0, lineHeight: 1.6 }}>
               {realWorldText}
@@ -154,25 +148,23 @@ export default function SupportPage() {
       </section>
 
       {/* DEMO */}
-      <section id="demo" style={{ background: '#fff', padding: '64px 24px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{ marginBottom: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px' }}>
-              <Radio className="h-3.5 w-3.5" aria-hidden="true" />
-              Live Demo
-            </div>
-            <p style={{ fontSize: '14px', color: '#6B7280', margin: '0 0 12px' }}>
-              Ask what a customer might send on a Monday morning.
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {prompts.map(p => (
-                <span key={p} style={{
-                  padding: '6px 14px', borderRadius: '20px', border: '1px solid #E5E7EB',
-                  background: '#F9FAFB', color: '#374151', fontSize: '13px', fontWeight: 400,
-                  cursor: 'default',
-                }}>{p}</span>
-              ))}
-            </div>
+      <section id="demo" style={{ background: '#F9FAFB', padding: '64px 24px', borderTop: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px' }}>
+            <Radio className="h-3.5 w-3.5" aria-hidden="true" />
+            Live Demo
+          </div>
+          <p style={{ fontSize: '14px', color: '#6B7280', margin: '0 0 16px' }}>
+            Ask what a customer might send on a Monday morning.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+            {prompts.map(p => (
+              <span key={p} style={{
+                padding: '6px 14px', borderRadius: '20px', border: '1px solid #E5E7EB',
+                background: '#fff', color: '#374151', fontSize: '13px',
+                cursor: 'default',
+              }}>{p}</span>
+            ))}
           </div>
           <div style={{ maxHeight: '560px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
             <ChatPanel
@@ -198,86 +190,30 @@ export default function SupportPage() {
       </section>
 
       {/* MY THINKING */}
-      <section id="thinking" style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '32px' }}>
+      <section id="thinking" style={{ background: '#fff', padding: '64px 24px', borderTop: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             <Lightbulb className="h-3.5 w-3.5" aria-hidden="true" />
             My Thinking
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-            {myThinking.map((item, i) => (
-              <div key={item.title} style={{
-                background: '#fff',
-                border: '1px solid #E5E7EB',
-                borderTop: '4px solid var(--accent)',
-                borderRadius: '16px',
-                padding: '24px',
-              }}>
-                <span style={{ fontSize: '11px', fontWeight: 700, color: '#D1D5DB', display: 'block', marginBottom: '12px' }}>
-                  0{i + 1}
-                </span>
-                <h3 style={{ fontSize: '13px', fontWeight: 700, color: '#111827', margin: '0 0 8px' }}>{item.title}</h3>
-                <p style={{ fontSize: '13px', color: '#4B5563', margin: 0, lineHeight: 1.65 }}>{item.body}</p>
-              </div>
-            ))}
-          </div>
+          <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#111827', margin: '0 0 32px', letterSpacing: '-0.025em' }}>
+            How I approach building this.
+          </h2>
+          {myThinking.map((item, i) => numberedListItem(i, item.title, item.body))}
+          <div style={{ borderTop: '1px solid #E5E7EB' }} />
         </div>
       </section>
 
       {/* BEST PRACTICES */}
-      <section id="best-practices" style={{ background: '#F9FAFB', padding: '80px 24px', borderTop: '1px solid #E5E7EB' }}>
+      <section id="best-practices" style={{ background: '#fff', padding: '64px 24px', borderTop: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Best Practices
           </div>
-          <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#111827', margin: '0 0 40px', letterSpacing: '-0.025em' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#111827', margin: '0 0 32px', letterSpacing: '-0.025em' }}>
             Universal standards for AI support systems.
           </h2>
-          {bestPractices.map((bp, i) => {
-            const key = String(i)
-            const isOpen = openBP.has(key)
-            return (
-              <div key={bp.title} style={{ borderTop: '1px solid #E5E7EB' }}>
-                <div
-                  role="button"
-                  aria-expanded={isOpen}
-                  onClick={() => toggleBP(key)}
-                  style={{
-                    padding: '20px 0',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', flex: 1 }}>
-                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#D1D5DB', flexShrink: 0, paddingTop: '2px', minWidth: '24px' }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#111827', margin: 0 }}>{bp.title}</h3>
-                  </div>
-                  <ChevronRight
-                    className="h-3.5 w-3.5"
-                    style={{
-                      color: '#D1D5DB',
-                      flexShrink: 0,
-                      marginTop: '3px',
-                      transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s ease-out',
-                    }}
-                    aria-hidden="true"
-                  />
-                </div>
-                <div style={{
-                  overflow: 'hidden',
-                  maxHeight: isOpen ? '500px' : '0',
-                  transition: 'max-height 0.2s ease-out',
-                }}>
-                  <p style={{ fontSize: '14px', color: '#4B5563', margin: '0 0 20px 48px', lineHeight: 1.7 }}>{bp.body}</p>
-                </div>
-              </div>
-            )
-          })}
+          {bestPractices.map((bp, i) => numberedListItem(i, bp.title, bp.body))}
           <div style={{ borderTop: '1px solid #E5E7EB' }} />
         </div>
       </section>

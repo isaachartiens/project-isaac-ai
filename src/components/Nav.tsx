@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Home, Headphones, TriangleAlert, ChartColumn } from 'lucide-react'
+import { Home, Headphones, TriangleAlert, ChartColumn, Briefcase } from 'lucide-react'
 
 // Accent color per linked-to page (not the current page)
 const routeAccent: Record<string, string> = {
@@ -10,10 +10,12 @@ const routeAccent: Record<string, string> = {
   '/support': '#60A5FA',
   '/escalation': '#2DD4BF',
   '/analytics': '#A78BFA',
+  '/experience': '#818CF8',
 }
 
 const links = [
   { href: '/', label: 'Home', Icon: Home },
+  { href: '/experience', label: 'Experience', Icon: Briefcase },
   { href: '/support', label: 'Customer Support', Icon: Headphones },
   { href: '/escalation', label: 'Escalation Assistant', Icon: TriangleAlert },
   { href: '/analytics', label: 'Gen BI Analytics', Icon: ChartColumn },

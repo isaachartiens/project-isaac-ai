@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Isaac Hartiens — AI Toolkit',
-  description: 'AI-powered CX tools built by Isaac Hartiens: support, escalation, and analytics',
+  title: 'Isaac Hartiens | CX & AI Portfolio',
+  description: 'AI-powered CX tools and career portfolio for Isaac Hartiens: customer support, escalation assistant, and analytics.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
