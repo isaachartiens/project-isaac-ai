@@ -140,7 +140,7 @@ export default function AnalyticsPage() {
       }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            TOOL 03 · GEN BI ANALYTICS
+            GEN BI ANALYTICS
           </div>
           <h1 style={{ fontSize: '40px', fontWeight: 700, color: '#111827', margin: '0 0 20px', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             Gen BI Analytics Bot

@@ -3,6 +3,12 @@ import Link from 'next/link'
 
 const tools = [
   {
+    id: 'analytics',
+    name: 'Gen BI Analytics',
+    tagline: 'Plain-language questions, auditable answers.',
+    href: '/analytics',
+  },
+  {
     id: 'support',
     name: 'Customer Support',
     tagline: 'Triage and drafting that keeps a human in the loop.',
@@ -13,12 +19,6 @@ const tools = [
     name: 'Escalation Assistant',
     tagline: 'Context assembled before the customer repeats themselves.',
     href: '/escalation',
-  },
-  {
-    id: 'analytics',
-    name: 'Gen BI Analytics',
-    tagline: 'Plain-language questions, auditable answers.',
-    href: '/analytics',
   },
 ]
 

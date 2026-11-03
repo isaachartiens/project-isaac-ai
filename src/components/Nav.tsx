@@ -14,10 +14,10 @@ const routeAccent: Record<string, string> = {
 
 const links = [
   { href: '/', label: 'Home', Icon: Home },
-  { href: '/experience', label: 'Experience', Icon: Briefcase },
+  { href: '/analytics', label: 'Gen BI Analytics', Icon: ChartColumn },
   { href: '/support', label: 'Customer Support', Icon: Headphones },
   { href: '/escalation', label: 'Escalation Assistant', Icon: TriangleAlert },
-  { href: '/analytics', label: 'Gen BI Analytics', Icon: ChartColumn },
+  { href: '/experience', label: 'Experience', Icon: Briefcase },
 ]
 
 const toolPaths = ['/support', '/escalation', '/analytics']
